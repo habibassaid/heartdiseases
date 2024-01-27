@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>medical website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+    }
+
+    h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+
+    .jumbotron {
+      background-color: #f41e50;
+      color: #fff;
+      padding: 100px 25px;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .container-fluid {
+      padding: 60px 50px;
+    }
+
+    .bg-grey {
+      background-color: #f6f6f6;
+    }
+
+
+
+    .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+    }
+
+    .carousel-control.right,
+    .carousel-control.left {
+      background-image: none;
+      color: #f41e1e;
+    }
+
+    .carousel-indicators li {
+      border-color: #f4511e;
+    }
+
+    .carousel-indicators li.active {
+      background-color: #f4511e;
+    }
+
+    .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+    }
+
+    .item span {
+      font-style: normal;
+    }
+
+    .panel {
+      border: 1px solid #f4511e;
+      border-radius: 0 !important;
+      transition: box-shadow 0.5s;
+    }
+
+    .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
+    }
+
+    .panel-footer .btn:hover {
+      border: 1px solid #f4511e;
+      background-color: #fff !important;
+      color: #f4511e;
+    }
+
+    .panel-heading {
+      color: #fff !important;
+      background-color: #f41e1e !important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    .panel-footer {
+      background-color: white !important;
+    }
+
+    .panel-footer h3 {
+      font-size: 32px;
+    }
+
+    .panel-footer h4 {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #f4511e;
+      color: #fff;
+    }
+
+    .navbar {
+      margin-bottom: 0;
+      background-color: #f41e57;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .navbar li a,
+    .navbar .navbar-brand {
+      color: #fff !important;
+    }
+
+    .navbar-nav li a:hover,
+    .navbar-nav li.active a {
+      color: #f4511e !important;
+      background-color: #fff !important;
+    }
+
+    .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+    }
+
+    footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #f41e62;
+    }
+
+    .slideanim {
+      visibility: hidden;
+    }
+
+    .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+    }
+
+    @keyframes slide {
+      0% {
+        opacity: 0;
+        transform: translateY(70%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+
+    @-webkit-keyframes slide {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+      }
+
+      .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .logo {
+        font-size: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#myPage">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#services">PROTECT</a></li>
+          <li><a href="#pricing">prediction</a></li>
+          <li><a href="res">Results</a></li>
+       
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron text-center">
+    <h1>Heart Attack prediction System</h1>
+    <p>Medical Attention You Can Rely On</p>
+  </div>
+
+  <!-- Container (About Section) -->
+  <div id="about" class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8">
+        <h2>About</h2><br>
+        <h4>Early detection of any disease in humans is playing a crucial role in treatment, Heart disease is manageable if it’s detected in early stages the medications are more likely to be helpful early in the disease process and often seems to result in maintaining the person's current  and thus, slowing the disease process, 
+Detect Heart diseases using  modern AI technologies
+ </h4><br>
+
+      </div>
+      <div class="col-sm-4">
+        <img src="/static/hr.jpg"width="450" height="450">
+<!--<img src="{{ url_for('static', filename='hr.jpg') }}" alt="D:\project part b\final test\test\static\hr.jpg" width="450" height="450">-->
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="services"  class="container-fluid bg-grey">
+    <div class="row">
+      <div class="col-sm-4">
+        <img src="/static/hr2.jpg"width="450" height="450">
+ 
+      </div>
+      <div class="col-sm-8">
+        <h1><b>protect yourself :</b></h1><br>
+        <h3>Protecting yourself from a heart attack involves adopting a healthy lifestyle and managing risk factors. Here are some key measures you can take to reduce the risk of heart attacks:</h3><br>
+        <p><b>
+        1-Maintain a Healthy Diet: Follow a balanced diet rich in fruits, vegetables, whole grains, lean proteins, and healthy fats. Limit the intake of saturated and trans fats, sodium, and added sugars.<br>
+        2-Exercise Regularly: Engage in physical activity for at least 150 minutes per week. Incorporate aerobic exercises like brisk walking, cycling, or swimming, as well as strength training exercises.<br>
+        3-Control Blood Pressure: Monitor your blood pressure regularly and take steps to keep it within a healthy range. If necessary, follow your healthcare provider's recommendations for blood pressure management.<br>
+        4-Manage Cholesterol Levels: Maintain healthy cholesterol levels by consuming a low-cholesterol diet, limiting saturated and trans fats, and, if needed, taking prescribed medications as directed by your healthcare provider<br>
+        5-Regular Check-ups: Visit your healthcare provider for routine check-ups and screenings. Regular monitoring of your health can help identify and manage risk factors for heart disease.</p></b><br>
+
+
+      
+
+        
+  </div>
+
+  <!-- Container (stages Section) -->
+  <div id="pricing" class="container-fluid">
+    <div class="text-center">
+      <h2>prediction</h2>
+      <img src="/static/hr4.png"width="450" height="450">
+     
+<form action="/predict" method=["GET","POST"]>
+  <label><b> Enter your age:</b ></label>
+  <input type="text" name="age" id ="age" placeholder="enter your age" required/>
+
+  <p> <b>Enter your Gender :</b></p>
+  <label> famel: </label>
+  <input type="radio" name="gender" id ="famel" value="famel"/>
+  <label> male: </label>
+  <input type="radio" name ="gender" id ="male" value="male"/> <br/>
+
+  <label> <b>Resting Blood pressure:</b> </label>
+  <input type="text" name="Blood" id ="Blood" placeholder="enter blood pressure" required/> <br/>
+  <label> <b>enter the cholestoral </b> </label>
+  <input type="text" name="chol" id ="chol" placeholder="enter your cholestoral " required/> <br/>
+
+
+  <label> <b> Enter oldpeak':</b> </label>
+  <input type="text" name="oldpeak" id ="oldpek" placeholder="enter the oldpeak" required/><br/>
+
+  <P><b>Fasting blood suger > 120mg ? </b> </P>
+  <label> Yes: </label>
+  <input type="radio" name ="fbs" id ="yes" value="Yes"/>
+  <label> NO: </label>
+  <input type="radio"name="fbs" id ="NO" value="NO"/> <br/>
+
+
+  <label for="ECG"><b> Choose a ECG Results:</b></label>
+  <select name="ECG" id="ECG">
+      <option value="Normal"> Normal</option>
+      <option value="Having ST-Twave abnormality"> Having ST-Twave abnormality</option>
+      <option value="left ventrlcular hypertrophy">left ventrlcular hypertrophy</option>
+  </select>
+  <br/>
+
+
+  <label><b>Maximum heart rate achived during ecg: </b></label>
+  <input type="text" name="heartrate" id ="heartrate" placeholder="max heart rate" required/><br/>
+
+
+  <P><b>chest pain during exercise ? </b></P>
+  <label> Yes: </label>
+  <input type="radio" name ="exang" id ="exang" value="Yes"/>
+  <label> NO: </label>
+  <input type="radio"name="exang" id ="exang" value="NO"/> <br/>
+
+
+  <label for="slop"> <b> Choose slope type : </b></label>
+  <select name="slp" id="slp">
+      <option value="slp_1">flat </option>
+      <option value="slp_2"> upsloping</option>
+  </select>
+  <br/>
+  <label for="thall"> <b> Choose thall type : </b></label>
+  <select name="thall" id="thall">
+      <option value="thall_1">no blood flow in some part of the heart)</option>
+      <option value="thall_2"> normal blood flow</option>
+      <option value="thall_3">  it is not normal</option>
+  </select>
+  <br/>
+  
+
+
+   <label for="cp"> <b> Choose chest pain type : </b></label>
+  <select name="cp" id="cp">
+      <option value="cp_1"> No chest pain</option>
+      <option value="cp_2"> Typical angine</option>
+      <option value="cp_3 "> ATypical angine</option>
+      <option value="cp4">Non-angine pain</option>
+      <option value="cp5">asyptomatic</option>
+  </select>
+<br/>
+
+<div>
+  <button type="submit"> predict</button>
+
+  
+    </div>
+  </div>
+    
+  <div id="pricing" class="container-fluid"></div>
+  <div class="text-center">
+          <div class="res">
+            <h1>Results</h1>
+          </div>
+         <!-- <img src="//static/hr6.jpg">.    -->
+         <img src="/static/res.jpg"width="450" height="450">
+
+  <div>{{prediction_text}}</div>
+</form>
+
+
+
+
+
+  <!-- Container (Statistics  Section) -->
+  <div class="container-fluid text-center">
+    <h2>STATISTICS</h2>
+    <br>
+    <div class="row slideanim">
+      <div class="col-sm-4">
+        <h4>200 million</h4>
+        <p> people are living with coronary heart disease</p>
+      </div>
+      <div class="col-sm-4">
+        <h4>around 110 million </h4>
+        <p>around 110 million men  have coronary heart disease.</p>
+      </div>
+      <div class="col-sm-4">
+        <h4>80 million</h4>
+        <p>around  80 million women have coronary heart disease.</p>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+  <!-- Image of location/map -->
+  
+
+  <footer class="container-fluid text-center">
+    <a href="#myPage" title="To Top">
+      <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+    <p>Thanks for using Heart Attack prediction system</p>
+  </footer>
+
+  <script>
+    $(document).ready(function () {
+      // Add smooth scrolling to all links in navbar + footer link
+      $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+        // Make sure this .hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+
+          // Store hash
+          var hash = this.hash;
+
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 900, function () {
+
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+
+      $(window).scroll(function () {
+        $(".slideanim").each(function () {
+          var pos = $(this).offset().top;
+
+          var winTop = $(window).scrollTop();
+          if (pos < winTop + 600) {
+            $(this).addClass("slide");
+          }
+        });
+      });
+    })
+  </script>
+
+</body>
+
+</html>
